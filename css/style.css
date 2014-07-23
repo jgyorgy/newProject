@@ -12,3 +12,4 @@ body li{list-style: none;}
 .cautare4 {width:215px;}
 .selectBox-options , .selectBox-options li , .selectBox-options li a{font-size: 18px; list-style: none outside none; margin: 0; padding: 2px 0 0 2px;}
 .selectBox-options li{ clear: both;}
+.restaurante{width: 500px; height: 100px; background-color: green;}

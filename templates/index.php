@@ -1,7 +1,7 @@
 <?php
 include_once('../templates/header.php');
 ?>
-	<form>
+	<form action="cautare.php" method="POST">
 		<ul id="cautare">
 			<li class="cautare1">
 				<label for="zona">Zona</label>
@@ -15,19 +15,16 @@ include_once('../templates/header.php');
 			<li class="cautare4">
 				<label for="ora">Ora</label>
 			</li>
-			<li class="cautare5">
-				<label for="persoane">Nr. persoane</label>
-			</li>
 			<li class="cautare1 selectBox-options">
 				<select name="zona" id="zona" tabindex="1">	
 					<option value="">Zona</option>
-					<option value="9">Canada</option>
-					<option value="2">France</option>
-					<option value="3">Spain</option>
-					<option value="6">Bulgaria</option>
-					<option value="8">Italy</option>
-					<option value="5">Japan</option>
-					<option value="11">China</option>
+					<option value="Canada">Canada</option>
+					<option value="France">France</option>
+					<option value="Spain">Spain</option>
+					<option value="Bulgaria">Bulgaria</option>
+					<option value="Italy">Italy</option>
+					<option value="Japan">Japan</option>
+					<option value="China">China</option>
 				</select>
 			</li>
 			<li class="cautare2 selectBox-options">
@@ -44,6 +41,7 @@ include_once('../templates/header.php');
 				<input id="datepicker">
 			</li>
 		</ul>
+		<input type="submit" value="Cauta">
 	</form>
 		
 	</body>
