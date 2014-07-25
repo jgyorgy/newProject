@@ -1,33 +1,23 @@
 <?php
 include_once('../templates/header.php');
+
+	
 ?>
 	<form action="cautare.php" method="POST">
 		<ul id="cautare">
 			<li class="cautare1">
-				<label for="zona">Zona</label>
+				<label for="restaurant">Zona</label>
+				<div class="clearer"></div>
+				<select name="restaurant" id="restaurant" tabindex="1">	
+					<option value="">Restaurant</option>
+					<?php for($i=0; $i<count($Restaurante); $i++){	?>
+						<option value="<?php print($Restaurante[$i]['ID']);?>"><?php print($Restaurante[$i]['Nume']);?></option>
+					<?php }	?>
+				</select>
 			</li>
 			<li class="cautare2">
 				<label for="persoane">Nr. persoane</label>
-			</li>
-			<li class="cautare3">
-				<label for="data">Data</label>
-			</li>
-			<li class="cautare4">
-				<label for="ora">Ora</label>
-			</li>
-			<li class="cautare1 selectBox-options">
-				<select name="zona" id="zona" tabindex="1">	
-					<option value="">Zona</option>
-					<option value="Canada">Canada</option>
-					<option value="France">France</option>
-					<option value="Spain">Spain</option>
-					<option value="Bulgaria">Bulgaria</option>
-					<option value="Italy">Italy</option>
-					<option value="Japan">Japan</option>
-					<option value="China">China</option>
-				</select>
-			</li>
-			<li class="cautare2 selectBox-options">
+				<div class="clearer"></div>
 				<select name="nr_persoane" id="nr_persoane" tabindex="1">	
 					<option value="">Nr. persoane</option>
 					<option value="2">2 persoane</option>
@@ -38,7 +28,12 @@ include_once('../templates/header.php');
 				</select>
 			</li>
 			<li class="cautare3">
-				<input id="datepicker">
+				<label for="data">Data</label>
+				<div class="clearer"></div>
+				<input id="datepicker" class="dateInput">
+			</li>
+			<li class="cautare4">
+				<label for="ora">Ora</label>
 			</li>
 		</ul>
 		<input type="submit" value="Cauta">

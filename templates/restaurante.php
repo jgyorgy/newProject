@@ -1,12 +1,12 @@
 <?php
 	include_once('../templates/header.php');
+
+	
+
+	for($i=0; $i<count($Restaurante); $i++){
 ?>
 <div class="restaurante">
-<?php
-	$database->query("select ID , Nume , Adresa from restaurante");
-	$Restaurante = ($database->resultset());
-?>
-
-	Nume: <?php print($Restaurante[0]['Nume']);?>
-	Adresa: <?php print($Restaurante[0]['Adresa']);?>
+	Nume: <?php print($Restaurante[$i]['Nume']);?>
+	Adresa: <?php print($Restaurante[$i]['Adresa']);?>
 </div>
+<?php } ?>
