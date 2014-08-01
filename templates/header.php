@@ -15,7 +15,8 @@
 		<!--selectbox-->
 		<link href="../css/jquery.selectBox.css" type="text/css" rel="stylesheet" />
 		<script src="../js/jquery.selectBox.js"></script>
-
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 		<script type="text/javascript">
 		$(document).ready(function() {
 			$( "#datepicker" ).datepicker();
@@ -24,11 +25,12 @@
 		</script>
 	</head>
 	<body>
-		<div class="header">
-			<ul class="headerMenu">
-				<li><a href="index.php">Home</a></li>
-				<li><a href="restaurante.php">Restaurante</a></li>
-				<li>Despre</li>
-				<li>Ajutor</li>
-			</ul>
-		</div>
+		<div class="wrapper">
+			<div class="header">
+				<ul class="headerMenu">
+					<li><a href="index.php">Home</a></li>
+					<li><a href="restaurante.php">Restaurante</a></li>
+					<li>Despre</li>
+					<li>Ajutor</li>
+				</ul>
+			</div>

@@ -1,6 +1,6 @@
 body{background-color: #0d0d0d; padding: 0; margin: 0; color: #ffffff;}
 body li{list-style: none;}
-body a{text-decoration: none; color: #ffffff;}
+body a{text-decoration: none; color: #000000;}
 .clearer{clear:both;}
 .header{background: #8C1010; height: 50px; width: 100%;}
 .headerMenu li {float: left; list-style: none; margin-left: 20px; font-size: 25px; line-height: 50px;}
@@ -17,5 +17,12 @@ body a{text-decoration: none; color: #ffffff;}
 			border: 1px solid #bbb;
     border-radius: 4px;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.75); padding: 0;padding-left: 40px;}
-    
+
 .restaurante{width: 500px; height: 100px; background-color: green;}
+.selectBox-dropdown-menu{color: #000;}
+
+@media screen and (max-width : 768px){
+
+.wrapper{max-width: 480px; background-color: red; margin: 0 auto;}
+
+}
