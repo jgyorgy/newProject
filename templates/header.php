@@ -15,11 +15,14 @@
 		<!--selectbox-->
 		<link href="../css/jquery.selectBox.css" type="text/css" rel="stylesheet" />
 		<script src="../js/jquery.selectBox.js"></script>
-		
+		<link href="../css/jquery.ui.timepicker.css" type="text/css" rel="stylesheet" />
+		<script src="../js/jquery.ui.timepicker.js"></script>
+
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 		<script type="text/javascript">
 		$(document).ready(function() {
 			$( "#datepicker" ).datepicker();
+			$( "#timepicker" ).timepicker();
 			$('select').selectBox();
 		});
 		</script>

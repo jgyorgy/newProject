@@ -34,9 +34,14 @@ include_once('../templates/header.php');
 			</li>
 			<li class="cautare4">
 				<label for="ora">Ora</label>
+				<div class="clearer"></div>
+				<input id="timepicker" class="timeInput">
+			</li>
+			<li class="butonSubmit">
+				<input class="butonCautare" type="submit" value="Cauta">
 			</li>
 		</ul>
-		<input type="submit" value="Cauta">
+		
 	</form>
 		
 	</body>
