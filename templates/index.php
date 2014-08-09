@@ -21,9 +21,7 @@ include_once('../templates/header.php');
 				<select name="nr_persoane" id="nr_persoane" tabindex="1">	
 					<option value="">Nr. persoane</option>
 					<option value="2">2 persoane</option>
-					<option value="3">3 persoane</option>
 					<option value="4">4 persoane</option>
-					<option value="5">5 persoane</option>
 					<option value="6">6 persoane</option>
 				</select>
 			</li>
@@ -42,7 +40,6 @@ include_once('../templates/header.php');
 			</li>
 		</ul>
 		
-	</form>
-		
+	</form>		
 	</body>
 </html>

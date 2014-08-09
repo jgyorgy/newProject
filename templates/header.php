@@ -36,4 +36,7 @@
 					<li>Despre</li>
 					<li>Ajutor</li>
 				</ul>
+				<div class="subHeader">
+					<img src="../images/banner_restaurant.jpg"> 
+				</div>
 			</div>

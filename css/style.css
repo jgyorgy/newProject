@@ -2,8 +2,10 @@ body{background-color: #0d0d0d; padding: 0; margin: 0; color: #ffffff;}
 body li{list-style: none;}
 body a{text-decoration: none; color: #000000;}
 .clearer{clear:both;}
-.header{background: #8C1010; height: 50px; width: 100%;}
-.headerMenu li {float: left; list-style: none; margin-left: 20px; font-size: 25px; line-height: 50px;}
+.wrapper{max-width: 1024px; margin: 0 auto;}
+.header{height: auto;}
+.headerMenu {background: #8C1010; height: 50px; width: 100%; padding: 0; margin: 0;}
+.headerMenu li {float: left; list-style: none; margin-left: 20px; font-size: 25px; line-height: 50px; }
 #cautare{width: auto; height: 100px; margin: 0 auto; padding-left: 20px;}
 #cautare li {float: left; height: 40px; padding-left: 20px;}
 #cautare li:nth-child(1) {padding-left: 0;}
@@ -21,9 +23,16 @@ body a{text-decoration: none; color: #000000;}
 .butonCautare{height: 40px; width: 75px; background-color: #8C1010;
 	border-radius: 4px; padding: 0; font-weight: bold; color: #ffffff;}
 .butonSubmit{padding-top: 40px;}
+.subHeader { height: auto; text-align: center;}
+.subHeader img {width: 100%;}
 
 @media screen and (max-width : 768px){
 
 .wrapper{max-width: 480px; background-color: red; margin: 0 auto; }
-
+#cautare{height: 300px;}
+#cautare li {padding-left: 0;}
+.cautare2 {padding-left: 25px;}
+.cautare3 {padding-top: 50px;}
+.cautare4 {padding-top: 50px;}
+#cautare li.butonSubmit {clear: both; float: right; padding-top: 65px; margin-right: 50px;}
 }
