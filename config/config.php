@@ -12,5 +12,5 @@
 	$Restaurant = new Restaurant($database);
 	
 	$Restaurante = $Restaurant->restaurantDetails();
-        $Restaurant->insertRezervation();
+        
 ?>

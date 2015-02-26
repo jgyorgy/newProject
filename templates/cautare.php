@@ -11,14 +11,12 @@
         echo  'data: '.$data.'<br />';
         echo  'ora: '.$ora.'<br />';
         
-        insertRezervation($restaurant , $persoane , $data , $ora);
+        $time = strtotime($data);
+
+        $newformat = date('Y-m-d',$time);
+
+        echo $newformat;
         
-	 
-	 
-	
-        
-        
-        
-        
+        $Restaurant->insertRezervation($restaurant , $persoane , $data , $ora);
         
 ?>

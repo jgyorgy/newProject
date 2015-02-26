@@ -19,30 +19,10 @@ class Restaurant{
 		return ($this->Database->resultset());
 	}
         
-       /* public function insertData(){
-        
-                $query = "INSERT INTO mese_disponibile (restaurant, persoane, data, ora) values (?, ?, ?, ?)";
-                $this->Database->query($query);
-                $q = $conn->prepare($query) or die("ERROR: " . implode(":", $conn->errorInfo()));
-
-                $q->bindParam(1, $restaurant);
-                $q->bindParam(2, $persoane);
-                $q->bindParam(3, $data);
-                $q->bindParam(4, $ora);
-
-            try {
-            $q->execute();
-                        echo "<h1> Congratulations, asd! You have been successfully signed up! </h1>";
-            }
-            catch(PDOException $pe) {
-                echo('Connection error, because: ' .$pe->getMessage());
-            }
-        }*/
-        
         public function insertRezervation($restaurant,$persoane,$data,$ora){
             
-            $this->Database->query("INSERT INTO mese_disponibile(restaurant,
-            persoane,
+            $this->Database->query("INSERT INTO mese_disponibile(Restaurant_ID,
+            Mese_ID,
             data,
             ora) VALUES (
             :restaurant,
@@ -55,8 +35,8 @@ class Restaurant{
             $this->Database->bind(':data', $data, PDO::PARAM_STR);
             $this->Database->bind(':ora', $ora, PDO::PARAM_STR);
             
-            $this->Database->execute(array(':restaurant' => $restaurant, ':persoane' => $persoane, ':data' => $data, ':ora' => $ora));
-                                              
-
+            $this->Database->execute();
+            echo ('insert succeeded');                                  
+            
         }
 }
