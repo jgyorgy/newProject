@@ -39,8 +39,9 @@ class Restaurant{
             }
         }*/
         
-        public function insertRezervation(){
-            $stmt = $this->Database->prepare("INSERT INTO mese_disponibile(restaurant,
+        public function insertRezervation($restaurant,$persoane,$data,$ora){
+            
+            $this->Database->query("INSERT INTO mese_disponibile(restaurant,
             persoane,
             data,
             ora) VALUES (
@@ -49,12 +50,12 @@ class Restaurant{
             :data,
             :ora)");
             
-            $stmt->bindValue(':restaurant', $restaurant, PDO::PARAM_STR);      
-            $stmt->bindValue(':persoane', $persoane, PDO::PARAM_STR);
-            $stmt->bindValue(':data', $data, PDO::PARAM_STR);
-            $stmt->bindValue(':ora', $ora, PDO::PARAM_STR);
+            $this->Database->bind(':restaurant', $restaurant, PDO::PARAM_STR);      
+            $this->Database->bind(':persoane', $persoane, PDO::PARAM_STR);
+            $this->Database->bind(':data', $data, PDO::PARAM_STR);
+            $this->Database->bind(':ora', $ora, PDO::PARAM_STR);
             
-            $stmt->execute(array(':restaurant' => $restaurant, ':persoane' => $persoane, ':data' => $data, ':ora' => $ora));
+            $this->Database->execute(array(':restaurant' => $restaurant, ':persoane' => $persoane, ':data' => $data, ':ora' => $ora));
                                               
 
         }

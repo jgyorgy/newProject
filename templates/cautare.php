@@ -6,16 +6,18 @@
         $data  = htmlspecialchars($_POST['dataCheck']);
         $ora  = htmlspecialchars($_POST['oraCheck']);
 
-        insertRezervation();
+        echo  'restaurant: '.$restaurant.'<br />';
+        echo  'nr persoane: '.$persoane.'<br />';
+        echo  'data: '.$data.'<br />';
+        echo  'ora: '.$ora.'<br />';
+        
+        insertRezervation($restaurant , $persoane , $data , $ora);
         
 	 
 	 
 	
         
-        echo  'restaurant: '.$restaurant.'<br />';
-        echo  'nr persoane: '.$persoane.'<br />';
-        echo  'data: '.$data.'<br />';
-        echo  'ora: '.$ora.'<br />';
+        
         
         
         
