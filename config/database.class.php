@@ -53,7 +53,11 @@ class Database{
 	public function execute(){
 	    return $this->stmt->execute();
 	}
-
+        
+        public function prepare(){
+	    return $this->stmt->prepare();
+	}
+        
 	public function resultset(){
 	    $this->execute();
 	    return $this->stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -1,6 +1,5 @@
 <?php
 include_once('../templates/header.php');
-
 	
 ?>
 	<form action="cautare.php" method="POST">
@@ -28,12 +27,12 @@ include_once('../templates/header.php');
 			<li class="cautare3">
 				<label for="data">Data</label>
 				<div class="clearer"></div>
-				<input id="datepicker" class="dateInput">
+				<input name="dataCheck" id="datepicker" class="dateInput">
 			</li>
 			<li class="cautare4">
 				<label for="ora">Ora</label>
 				<div class="clearer"></div>
-				<input id="timepicker" class="timeInput">
+				<input name="oraCheck" id="timepicker" class="timeInput">
 			</li>
 			<li class="butonSubmit">
 				<input class="butonCautare" type="submit" value="Cauta">

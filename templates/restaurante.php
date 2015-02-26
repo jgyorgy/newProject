@@ -6,7 +6,8 @@
 	for($i=0; $i<count($Restaurante); $i++){
 ?>
 <div class="restaurante">
-	Nume: <?php print($Restaurante[$i]['Nume']);?>
+    <img src="<?php print($Restaurante[$i]['Thumbnail']);?>">
+	Nume: <?php print($Restaurante[$i]['Nume']);?><br />
 	Adresa: <?php print($Restaurante[$i]['Adresa']);?>
 </div>
 <?php } ?>
