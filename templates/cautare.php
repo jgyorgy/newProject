@@ -1,22 +1,20 @@
 <?php
-	include_once('../templates/header.php');
-        
-        $restaurant = htmlspecialchars($_POST['restaurant']);
-        $persoane  = htmlspecialchars($_POST['nr_persoane']);
-        $data  = htmlspecialchars($_POST['dataCheck']);
-        $ora  = htmlspecialchars($_POST['oraCheck']);
 
-        echo  'restaurant: '.$restaurant.'<br />';
-        echo  'nr persoane: '.$persoane.'<br />';
-        echo  'data: '.$data.'<br />';
-        echo  'ora: '.$ora.'<br />';
-        
-        $time = strtotime($data);
+include_once('../templates/header.php');
 
-        $newformat = date('Y-m-d',$time);
+$restaurant = htmlspecialchars($_POST['restaurant']);
+$masa = htmlspecialchars($_POST['nr_persoane']);
+$data = htmlspecialchars($_POST['dataCheck']);
+$ora = htmlspecialchars($_POST['oraCheck']);
 
-        echo $newformat;
-        
-        $Restaurant->insertRezervation($restaurant , $persoane , $data , $ora);
-        
+$time = strtotime($data . ' ' . $ora);
+
+$newformat = date('Y-m-d  H:i:s', $time);
+$newformat = new DateTime($newformat);
+$meseLibere = $Restaurant->restaurantHasFreeTables($restaurant, $masa, $newformat);
+if ($meseLibere) {
+  echo 'sunt mese libere';
+} else {
+  echo 'stay home';
+}
 ?>
