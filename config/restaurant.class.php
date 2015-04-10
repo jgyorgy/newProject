@@ -13,30 +13,15 @@ class Restaurant {
     return ($this->Database->resultset());
   }
 
-  public function meseDisponibile() {
-    $query = "SELECT r.ID FROM restaurante AS r;";
-    $this->Database->query($query);
-    return ($this->Database->resultset());
-  }
-
-  public function insertRezervation($restaurant, $persoane, $data, $ora) {
-
-    $this->Database->query("INSERT INTO mese_disponibile(Restaurant_ID,
-            Mese_ID,
-            data,
-            ora) VALUES (
-            :restaurant,
-            :persoane,
-            :data,
-            :ora)");
+  public function insertRezervation($restaurant, $masa, $savedDate) {
+      
+    $this->Database->query("INSERT INTO mese_disponibile(Restaurant_ID, Mese_ID, data) VALUES (:restaurant, :masa, :savedDate)");
 
     $this->Database->bind(':restaurant', $restaurant, PDO::PARAM_STR);
-    $this->Database->bind(':persoane', $persoane, PDO::PARAM_STR);
-    $this->Database->bind(':data', $data, PDO::PARAM_STR);
-    $this->Database->bind(':ora', $ora, PDO::PARAM_STR);
+    $this->Database->bind(':masa', $masa, PDO::PARAM_STR);
+    $this->Database->bind(':savedDate', $savedDate->format("Y-m-d H:i:s"), PDO::PARAM_STR);
 
     $this->Database->execute();
-    echo ('insert succeeded');
   }
 
   public function restaurantHasFreeTables($restaurant, $masa, $data) {
@@ -46,15 +31,17 @@ class Restaurant {
     $this->Database->query($query);
     $this->Database->bind(':restaurant', $restaurant, PDO::PARAM_STR);
     $this->Database->bind(':masa', $masa, PDO::PARAM_STR);
-    $totalTablesNumer = $this->Database->fetchColumn();
-    $query = "SELECT count(id) FROM mese_disponibile where Restaurant_ID = :restaurant and Mese_ID = :masa and  data >= :olddata and  data <= :newdata;";
+    $totalTablesNumber = $this->Database->fetchColumn();
+    
+    $query = "SELECT count(id) FROM mese_disponibile where Restaurant_ID = :restaurant and Mese_ID = :masa and  ADDTIME(data,'2:0:0.000') >= :olddata and  data <= :newdata;";
     $this->Database->query($query);
     $this->Database->bind(':restaurant', $restaurant, PDO::PARAM_STR);
     $this->Database->bind(':masa', $masa, PDO::PARAM_STR);
     $this->Database->bind(':olddata', $oldDate->format("Y-m-d H:i:s"), PDO::PARAM_STR);
     $this->Database->bind(':newdata', $newDate->format("Y-m-d H:i:s"), PDO::PARAM_STR);
     $ocupated = $this->Database->fetchColumn();
-    return (($totalTablesNumer - $ocupated) > 0);
+    return (($totalTablesNumber - $ocupated) > 0);   
+    
   }
 
 }

@@ -11,10 +11,19 @@ $time = strtotime($data . ' ' . $ora);
 
 $newformat = date('Y-m-d  H:i:s', $time);
 $newformat = new DateTime($newformat);
+
+$savedDate = date('Y-m-d  H:i:s', $time);
+$savedDate = new DateTime($savedDate);
+
 $meseLibere = $Restaurant->restaurantHasFreeTables($restaurant, $masa, $newformat);
-if ($meseLibere) {
-  echo 'sunt mese libere';
-} else {
-  echo 'stay home';
-}
+
+
+
+    if ($meseLibere) {
+        $insertRezervation = $Restaurant->insertRezervation($restaurant, $masa, $savedDate);
+        echo 'sunt mese libere';
+    
+    } else {
+        echo 'stay home';
+    }
 ?>

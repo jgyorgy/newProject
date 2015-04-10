@@ -1,10 +1,10 @@
-body{background-color: #0d0d0d; padding: 0; margin: 0; color: #ffffff;}
+body{background-color: #0d0d0d; padding: 0; margin: 0; color: #ffffff; font-family: 'Roboto Condensed', sans-serif;}
 body li{list-style: none;}
 body a{text-decoration: none; color: #000000;}
 .clearer{clear:both;}
 .wrapper{max-width: 1024px; margin: 0 auto;}
 .header{height: auto;}
-.headerMenu {background: #8C1010; height: 50px; width: 100%; padding: 0; margin: 0;}
+.headerMenu {background: #8D111B; height: 50px; width: 100%; padding: 0; margin: 0;}
 .headerMenu li {float: left; list-style: none; margin-left: 20px; font-size: 25px; line-height: 50px; }
 #cautare{width: auto; height: 100px; margin: 0 auto; padding-left: 20px;}
 #cautare li {float: left; height: 40px; padding-left: 20px;}
@@ -14,17 +14,73 @@ body a{text-decoration: none; color: #000000;}
 .cautare2 {width:auto;}
 .cautare3 {width:auto;}
 .cautare4 {width:auto;}
+.cautare1 a{cursor: pointer;}
+.cautare2 a{cursor: pointer;}
 .dateInput{width: 110px; height: 35px; background: url('../images/calendar.png') no-repeat; background-color: #f8f8f8; border: 1px solid #bbb;
 	border-radius: 4px; box-shadow: 0 1px 0 rgba(255, 255, 255, 0.75); padding: 0;padding-left: 40px;}
 .timeInput{width: 110px; height: 35px; background: url('../images/time.png') no-repeat; background-color: #f8f8f8; border: 1px solid #bbb;
 	border-radius: 4px; box-shadow: 0 1px 0 rgba(255, 255, 255, 0.75); padding: 0;padding-left: 40px;}
-.restaurante{width: 100%; height: 100px; background-color: green;}
+/*.restaurante{
+    width: 100%;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background: #8f8f8b;
+    padding-bottom: 10px;
+    margin-bottom: 15px;}*/
 .selectBox-dropdown-menu{color: #000;}
 .butonCautare{height: 40px; width: 75px; background-color: #8C1010;
 	border-radius: 4px; padding: 0; font-weight: bold; color: #ffffff;}
 .butonSubmit{padding-top: 40px;}
 .subHeader { height: auto; text-align: center;}
-.subHeader img {width: 100%; display: block;}
+.subHeader img {width: 100%; display: block; height: 200px;}
+
+.listaRestaurante{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.restauranteCautare{float: left;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.restauranteCautare li{
+    width: 100%;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background: #8f8f8b;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    float: left;
+    height: auto;
+}
+
+.pozaRestaurantCautare{width: 100px;
+height: 100px;
+float: left;
+padding: 6px;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+background: #8f8f8b;
+margin-right: 20px;}
+
+.pozaRestaurantCautare img{
+    width: 100px; height: 100px;
+}
+.restaurantDescriere{
+    float: left;
+}
+.numeRestaurantCautare{
+    float: left;
+}
+
+.descriereRestaurantCautare{
+    float: left;
+    clear: both;
+}
 
 @media screen and (max-width : 768px){
 

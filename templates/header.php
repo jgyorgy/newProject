@@ -22,7 +22,7 @@
 		<script type="text/javascript">
 		$(document).ready(function() {
                         $( "#datepicker" ).datepicker({
-                        altFormat: "yyyy-mm-dd"
+                            altFormat: "yyyy-mm-dd"
                         });
 			$( "#timepicker" ).timepicker();
 			$('select').selectBox();
