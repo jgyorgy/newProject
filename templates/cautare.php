@@ -15,15 +15,19 @@ $newformat = new DateTime($newformat);
 $savedDate = date('Y-m-d  H:i:s', $time);
 $savedDate = new DateTime($savedDate);
 
-$meseLibere = $Restaurant->restaurantHasFreeTables($restaurant, $masa, $newformat);
 
-
-
+if(isset($restaurant) && ($restaurant != '')) {
+    $meseLibere = $Restaurant->restaurantHasFreeTables($restaurant, $masa, $newformat);
     if ($meseLibere) {
-        $insertRezervation = $Restaurant->insertRezervation($restaurant, $masa, $savedDate);
-        echo 'sunt mese libere';
-    
-    } else {
-        echo 'stay home';
+        //$insertRezervation = $Restaurant->insertRezervation($restaurant, $masa, $savedDate);
+        echo 'Masa a fost ocupata';
+
+        } else {
+            echo 'stay home';
+        }
     }
+else{
+    $meseLibere = $Restaurant->allRestaurantHasFreeTables($masa, $newformat);
+
+}
 ?>

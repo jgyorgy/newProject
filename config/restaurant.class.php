@@ -14,7 +14,7 @@ class Restaurant {
   }
 
   public function insertRezervation($restaurant, $masa, $savedDate) {
-      
+    $savedDate = $savedDate->add(new DateInterval('PT2H'));
     $this->Database->query("INSERT INTO mese_disponibile(Restaurant_ID, Mese_ID, data) VALUES (:restaurant, :masa, :savedDate)");
 
     $this->Database->bind(':restaurant', $restaurant, PDO::PARAM_STR);
@@ -33,7 +33,7 @@ class Restaurant {
     $this->Database->bind(':masa', $masa, PDO::PARAM_STR);
     $totalTablesNumber = $this->Database->fetchColumn();
     
-    $query = "SELECT count(id) FROM mese_disponibile where Restaurant_ID = :restaurant and Mese_ID = :masa and  ADDTIME(data,'2:0:0.000') >= :olddata and  data <= :newdata;";
+    $query = "SELECT count(id) FROM mese_disponibile where Restaurant_ID = :restaurant and Mese_ID = :masa and data >= :olddata and  data <= :newdata;";
     $this->Database->query($query);
     $this->Database->bind(':restaurant', $restaurant, PDO::PARAM_STR);
     $this->Database->bind(':masa', $masa, PDO::PARAM_STR);
@@ -43,5 +43,38 @@ class Restaurant {
     return (($totalTablesNumber - $ocupated) > 0);   
     
   }
+
+public function allRestaurantHasFreeTables($masa, $data) {
+    $oldDate = clone $data;
+    $newDate = $data->add(new DateInterval('PT2H'));
+
+    $query = "SELECT count(d.id) as nr_mese_ocupate,d.Restaurant_ID FROM mese_disponibile as d left join  nr_mese as m on m.Mese_ID = d.Mese_ID where d.Mese_ID = :masa and d.data >= :olddata and d.data <= :newdata and m.mese_totale < count(d.id)";
+    $this->Database->query($query);
+    $this->Database->bind(':masa', $masa, PDO::PARAM_STR);
+    $this->Database->bind(':olddata', $oldDate->format("Y-m-d H:i:s"), PDO::PARAM_STR);
+    $this->Database->bind(':newdata', $newDate->format("Y-m-d H:i:s"), PDO::PARAM_STR);
+    try {
+        $ocupated = $this->Database->resultset();
+    } catch(\Exception $ex){
+        var_dump($ex);die('aici');
+    }
+
+    $nrRestaurante = count($ocupated);
+
+    $restaurante = array();
+    for($i=0; $i<$nrRestaurante; $i++){
+        $restaurante[$ocupated[$i]['Restaurant_ID']] = $ocupated[$i]['nr_mese_ocupate'] ;
+    }
+    var_dump($restaurante);die();
+    $query = "SELECT mese_totale FROM nr_mese where Restaurant_ID = $restaurante[0] and Mese_ID = :masa;";
+    $this->Database->query($query);
+    $this->Database->bind(':masa', $masa, PDO::PARAM_STR);
+    $totalTablesNumber = $this->Database->fetchColumn();
+    var_dump($totalTablesNumber);
+
+
+
+
+}
 
 }
