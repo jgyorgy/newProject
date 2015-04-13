@@ -9,7 +9,7 @@ class Restaurant {
   }
 
   public function restaurantDetails() {
-    $this->Database->query("select ID , Nume , Adresa from restaurante");
+    $this->Database->query("select ID , Nume , Adresa , Descriere from restaurante");
     return ($this->Database->resultset());
   }
 

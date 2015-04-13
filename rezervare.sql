@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.6deb1
+-- version 3.4.11.1deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 27, 2015 at 08:36 PM
--- Server version: 5.5.41-0ubuntu0.14.10.1
--- PHP Version: 5.5.12-2ubuntu4.2
+-- Generation Time: Apr 13, 2015 at 04:14 PM
+-- Server version: 5.5.29
+-- PHP Version: 5.4.6-1ubuntu1.3
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -27,8 +27,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `mese` (
-`ID` int(11) NOT NULL,
-  `numar_mese` int(11) NOT NULL
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `numar_mese` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
@@ -47,20 +48,31 @@ INSERT INTO `mese` (`ID`, `numar_mese`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `mese_disponibile` (
-`ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Restaurant_ID` int(11) NOT NULL,
   `Mese_ID` int(11) NOT NULL,
-  `data` datetime NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+  `data` datetime NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
 
 --
 -- Dumping data for table `mese_disponibile`
 --
 
 INSERT INTO `mese_disponibile` (`ID`, `Restaurant_ID`, `Mese_ID`, `data`) VALUES
-(3, 1, 2, '2015-02-03 01:00:00'),
-(4, 1, 2, '2015-02-03 02:00:00'),
-(6, 1, 2, '2015-02-03 02:35:00');
+(1, 1, 2, '2015-03-25 00:00:00'),
+(2, 1, 1, '0000-00-00 00:00:00'),
+(3, 1, 1, '0000-00-00 00:00:00'),
+(4, 1, 1, '0000-00-00 00:00:00'),
+(5, 1, 1, '2015-03-18 20:30:00'),
+(18, 1, 1, '2015-03-18 20:30:00'),
+(23, 1, 1, '2015-03-23 15:50:00'),
+(28, 1, 1, '2015-03-24 16:25:00'),
+(29, 1, 1, '2015-03-24 17:25:00'),
+(30, 1, 1, '2015-03-24 17:25:00'),
+(31, 1, 1, '2015-03-24 18:25:00'),
+(32, 1, 1, '2015-03-24 20:25:00'),
+(33, 1, 1, '2015-03-24 20:26:00');
 
 -- --------------------------------------------------------
 
@@ -69,10 +81,11 @@ INSERT INTO `mese_disponibile` (`ID`, `Restaurant_ID`, `Mese_ID`, `data`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `nr_mese` (
-`ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Restaurant_ID` int(11) NOT NULL,
   `Mese_ID` int(11) NOT NULL,
-  `mese_totale` int(11) NOT NULL
+  `mese_totale` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
@@ -80,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `nr_mese` (
 --
 
 INSERT INTO `nr_mese` (`ID`, `Restaurant_ID`, `Mese_ID`, `mese_totale`) VALUES
-(1, 1, 1, 10),
+(1, 1, 1, 2),
 (2, 1, 2, 4),
 (3, 1, 3, 2),
 (4, 2, 1, 5);
@@ -92,72 +105,24 @@ INSERT INTO `nr_mese` (`ID`, `Restaurant_ID`, `Mese_ID`, `mese_totale`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `restaurante` (
-`ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Nume` text NOT NULL,
   `Adresa` text NOT NULL,
-  `Thumbnail` text NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `Descriere` text NOT NULL,
+  `Thumbnail` text NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `restaurante`
 --
 
-INSERT INTO `restaurante` (`ID`, `Nume`, `Adresa`, `Thumbnail`) VALUES
-(1, 'aaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', ''),
-(2, 'bbbbbbbbbbbb', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', '');
+INSERT INTO `restaurante` (`ID`, `Nume`, `Adresa`, `Descriere`, `Thumbnail`) VALUES
+(1, 'Restaurant 1', 'Targu-Mures, Bulevardul 1 Decembrie 1918', 'Internet Wireless, Aer conditionat, Parcare privata, Tv bar/plasme, Terasa, Visa/Mastercard, Meniu vegetarian, Sala nefumatori, Sala fumatori', 'logo_restaurant_1'),
+(2, 'Restaurant 2', 'Targu-Mures, Bulevardul 1 Decembrie 1918', 'Internet Wireless, Aer conditionat, Parcare privata, Tv bar/plasme, Terasa, Visa/Mastercard, Meniu vegetarian, Sala nefumatori, Sala fumatori', 'logo_restaurant_2'),
+(3, 'Restaurant 3', 'Targu-Mures, Bulevardul 1 Decembrie 1918', 'Internet Wireless, Aer conditionat, Parcare privata, Tv bar/plasme, Terasa, Visa/Mastercard, Meniu vegetarian, Sala nefumatori, Sala fumatori', 'logo_restaurant_3'),
+(4, 'Restaurant 4', 'Targu-Mures, Bulevardul 1 Decembrie 1918', 'Internet Wireless, Aer conditionat, Parcare privata, Tv bar/plasme, Terasa, Visa/Mastercard, Meniu vegetarian, Sala nefumatori, Sala fumatori', 'logo_restaurant_4');
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `mese`
---
-ALTER TABLE `mese`
- ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `mese_disponibile`
---
-ALTER TABLE `mese_disponibile`
- ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `nr_mese`
---
-ALTER TABLE `nr_mese`
- ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `restaurante`
---
-ALTER TABLE `restaurante`
- ADD PRIMARY KEY (`ID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `mese`
---
-ALTER TABLE `mese`
-MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `mese_disponibile`
---
-ALTER TABLE `mese_disponibile`
-MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `nr_mese`
---
-ALTER TABLE `nr_mese`
-MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `restaurante`
---
-ALTER TABLE `restaurante`
-MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
