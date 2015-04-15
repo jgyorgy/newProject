@@ -48,17 +48,30 @@ public function allRestaurantHasFreeTables($masa, $data) {
     $oldDate = clone $data;
     $newDate = $data->add(new DateInterval('PT2H'));
 
-    $query = "SELECT count(d.id) as nr_mese_ocupate,d.Restaurant_ID FROM mese_disponibile as d left join  nr_mese as m on m.Mese_ID = d.Mese_ID where d.Mese_ID = :masa and d.data >= :olddata and d.data <= :newdata and m.mese_totale < count(d.id)";
+    //$query = "SELECT count(d.id) as nr_mese_ocupate,d.Restaurant_ID FROM mese_disponibile as d left join  nr_mese as m on m.Mese_ID = d.Mese_ID where d.Mese_ID = :masa and d.data >= :olddata and d.data <= :newdata and m.mese_totale < count(d.id)";
+    
+    $query = "SELECT count( d.id ) AS nr_mese_ocupate, d.Restaurant_ID, m.mese_totale
+                FROM mese_disponibile AS d
+                LEFT JOIN nr_mese AS m ON ( m.Mese_ID = d.Mese_ID
+                AND d.Restaurant_ID = m.Restaurant_ID )
+                WHERE d.Mese_ID = :masa
+                AND d.data >= :olddata
+                AND d.data <= :newdata
+                GROUP BY d.Restaurant_ID
+                HAVING m.mese_totale > nr_mese_ocupate";
+    
+    
     $this->Database->query($query);
     $this->Database->bind(':masa', $masa, PDO::PARAM_STR);
     $this->Database->bind(':olddata', $oldDate->format("Y-m-d H:i:s"), PDO::PARAM_STR);
     $this->Database->bind(':newdata', $newDate->format("Y-m-d H:i:s"), PDO::PARAM_STR);
     try {
         $ocupated = $this->Database->resultset();
+        print_r($ocupated);
     } catch(\Exception $ex){
         var_dump($ex);die('aici');
     }
-
+/*
     $nrRestaurante = count($ocupated);
 
     $restaurante = array();
@@ -70,7 +83,7 @@ public function allRestaurantHasFreeTables($masa, $data) {
     $this->Database->query($query);
     $this->Database->bind(':masa', $masa, PDO::PARAM_STR);
     $totalTablesNumber = $this->Database->fetchColumn();
-    var_dump($totalTablesNumber);
+    var_dump($totalTablesNumber);*/
 
 
 
