@@ -25,9 +25,44 @@ if(isset($restaurant) && ($restaurant != '')) {
         } else {
             echo 'stay home';
         }
-    }
+}
 else{
     $meseLibere = $Restaurant->allRestaurantHasFreeTables($masa, $newformat);
-
+    var_dump($meseLibere);
+    echo '<br />';
+    echo('crap');
+    if ($meseLibere === ''){
+        echo('nu este niciun loc liber');
+    }else{ 
+        var_dump($meseLibere);
+        echo('crap2');
+        for($i=0; $i<count($Restaurante); $i++){
+            var_dump($meseLibere[$i]['Restaurant_ID']);
+            echo('<br />');
+            if($Restaurante[$i]['Restaurant_ID'] == $meseLibere[$i]['Restaurant_ID']){
+        var_dump($meseLibere[$i]['Restaurant_ID']);
+        ?>
+        <ul class="restauranteCautare">
+            <li>
+                <div class='pozaRestaurantCautare'>
+                    <img src='../images/logos/logo.jpg'>
+                </div>
+                <div class="restaurantDescriere">
+                    <div class='numeRestaurantCautare'>
+                        <h2><?php print($Restaurante[$i]['Nume']);?></h2>
+                    </div>
+                    <div class='adresaRestaurantCautare'>
+                        Adresa: <?php print($Restaurante[$i]['Adresa']);?>
+                    </div>
+                    <div class='descriereRestaurantCautare'>
+                        Facilitati: <?php print($Restaurante[$i]['Descriere']);?>
+                    </div>
+                </div>
+                </li>
+        </ul>
+<?php
+            }
+        }
+    }
 }
 ?>
