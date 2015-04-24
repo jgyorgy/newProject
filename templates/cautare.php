@@ -20,28 +20,29 @@ if(isset($restaurant) && ($restaurant != '')) {
     $meseLibere = $Restaurant->restaurantHasFreeTables($restaurant, $masa, $newformat);
     if ($meseLibere) {
         //$insertRezervation = $Restaurant->insertRezervation($restaurant, $masa, $savedDate);
-        echo 'Masa a fost ocupata';
+        echo 'Masa e libera';
 
-        } else {
-            echo 'stay home';
-        }
+    } else {
+        echo 'stay home';
+    }
 }
 else{
     $meseLibere = $Restaurant->allRestaurantHasFreeTables($masa, $newformat);
-    var_dump($meseLibere);
-    echo '<br />';
-    echo('crap');
-    if ($meseLibere === ''){
-        echo('nu este niciun loc liber');
-    }else{ 
-        var_dump($meseLibere);
-        echo('crap2');
-        for($i=0; $i<count($Restaurante); $i++){
-            var_dump($meseLibere[$i]['Restaurant_ID']);
-            echo('<br />');
-            if($Restaurante[$i]['Restaurant_ID'] == $meseLibere[$i]['Restaurant_ID']){
-        var_dump($meseLibere[$i]['Restaurant_ID']);
-        ?>
+
+    $items = array();
+    for($i=0; $i<count($meseLibere); $i++){
+        $items[] = $meseLibere[$i]['Restaurant_ID'];
+    }
+    
+    $items2 = array();
+    for($i=0; $i<count($Restaurante); $i++){
+        $items2[] = $Restaurante[$i]['ID'];
+    }    
+    
+    $result = array_diff($items2, $items);
+    
+    foreach ($result as $value) {
+?>
         <ul class="restauranteCautare">
             <li>
                 <div class='pozaRestaurantCautare'>
@@ -49,20 +50,18 @@ else{
                 </div>
                 <div class="restaurantDescriere">
                     <div class='numeRestaurantCautare'>
-                        <h2><?php print($Restaurante[$i]['Nume']);?></h2>
+                        <h2><?php print($Restaurante[$value-1]['Nume']);?></h2>
                     </div>
                     <div class='adresaRestaurantCautare'>
-                        Adresa: <?php print($Restaurante[$i]['Adresa']);?>
+                        Adresa: <?php print($Restaurante[$value-1]['Adresa']);?>
                     </div>
                     <div class='descriereRestaurantCautare'>
-                        Facilitati: <?php print($Restaurante[$i]['Descriere']);?>
+                        Facilitati: <?php print($Restaurante[$value-1]['Descriere']);?>
                     </div>
                 </div>
                 </li>
         </ul>
 <?php
-            }
-        }
     }
 }
 ?>
