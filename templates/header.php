@@ -20,6 +20,7 @@
 		<link href="../css/jquery.ui.timepicker.css" type="text/css" rel="stylesheet" />
 		<script src="../js/jquery.ui.timepicker.js"></script>
                 <script src="../js/loginregister.js"></script>
+                <script src="../js/script.js"></script>
                 
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 		<script type="text/javascript">

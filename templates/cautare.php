@@ -14,16 +14,22 @@ $newformat = new DateTime($newformat);
 
 $savedDate = date('Y-m-d  H:i:s', $time);
 $savedDate = new DateTime($savedDate);
-
-
+?>
+<script>
+    var postData 
+</script>
+<?php
 if(isset($restaurant) && ($restaurant != '')) {
     $meseLibere = $Restaurant->restaurantHasFreeTables($restaurant, $masa, $newformat);
     if ($meseLibere) {
         //$insertRezervation = $Restaurant->insertRezervation($restaurant, $masa, $savedDate);
-        echo 'Masa e libera<br />';
-        print_r($restaurant);
-        echo '<br />';
-        print_r($Restaurante);
+//        echo 'Masa e libera<br />';
+//        echo 'rest id '.$restaurant;
+//        echo '<br />';
+//        echo 'masa id '.$masa;
+//        echo '<br />';
+//        print_r($savedDate);
+        //print_r($Restaurante);
         ?>
         <ul class="restauranteCautare">
             <li>
@@ -39,6 +45,9 @@ if(isset($restaurant) && ($restaurant != '')) {
                     </div>
                     <div class='descriereRestaurantCautare'>
                         Facilitati: <?php print($Restaurante[$restaurant - 1]['Descriere']);?>
+                    </div>
+                    <div class="rezervaMasa">
+                        <a id="rezerva" title="Rezerva" name="Rezerva" type="submit">Rezerva</a>
                     </div>
                 </div>
                 </li>
@@ -86,4 +95,25 @@ else{
 <?php
     }
 }
+
+try {
+    if ($_GET["action"] == "rezerva") {
+        
+        //$resultWorkers = mysql_query("SELECT * FROM workers");
+        
+        $insertRezervation = $Restaurant->insertRezervation($restaurant, $masa, $savedDate);
+
+        $Result = array();
+        $Result['Success'] = 'succeed';
+        print json_encode($Result);
+    }
+}catch (Exception $ex) {
+    //---------------error--------------------
+    $Result = array();
+    $Result['Result'] = "ERROR";
+    $Result['Message'] = $ex->getMessage();
+    print json_encode($Result);
+}
+
+
 ?>
