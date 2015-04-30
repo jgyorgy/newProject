@@ -70,5 +70,25 @@ class Restaurant {
             var_dump($ex);die('aici');
         }
     }
+    
+    public function checkUser($username){
+        
+            $query = "SELECT * FROM user WHERE username= :name ";
+            $this->Database->query($query);
+            $this->Database->bind(':name', $username, PDO::PARAM_STR);
+            $user = $this->Database->single();
+            return $user;
+    }
+    
+    public function insertUser($username , $password , $email , $phone){
+        
+            $this->Database->query("INSERT INTO user(username, email, password, phone) VALUES (:username, :email, :password, :phone)");
 
+            $this->Database->bind(':username', $username, PDO::PARAM_STR);
+            $this->Database->bind(':email', $email, PDO::PARAM_STR);
+            $this->Database->bind(':password', $password, PDO::PARAM_STR);
+            $this->Database->bind(':phone', $phone, PDO::PARAM_STR);
+
+            $this->Database->execute();
+    }
 }

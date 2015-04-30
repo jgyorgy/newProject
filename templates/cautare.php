@@ -20,8 +20,30 @@ if(isset($restaurant) && ($restaurant != '')) {
     $meseLibere = $Restaurant->restaurantHasFreeTables($restaurant, $masa, $newformat);
     if ($meseLibere) {
         //$insertRezervation = $Restaurant->insertRezervation($restaurant, $masa, $savedDate);
-        echo 'Masa e libera';
-
+        echo 'Masa e libera<br />';
+        print_r($restaurant);
+        echo '<br />';
+        print_r($Restaurante);
+        ?>
+        <ul class="restauranteCautare">
+            <li>
+                <div class='pozaRestaurantCautare'>
+                    <img src='../images/logos/logo.jpg'>
+                </div>
+                <div class="restaurantDescriere">
+                    <div class='numeRestaurantCautare'>
+                        <h2><?php print($Restaurante[$restaurant - 1]['Nume']);?></h2>
+                    </div>
+                    <div class='adresaRestaurantCautare'>
+                        Adresa: <?php print($Restaurante[$restaurant - 1]['Adresa']);?>
+                    </div>
+                    <div class='descriereRestaurantCautare'>
+                        Facilitati: <?php print($Restaurante[$restaurant - 1]['Descriere']);?>
+                    </div>
+                </div>
+                </li>
+        </ul>
+<?php
     } else {
         echo 'stay home';
     }
