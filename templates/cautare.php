@@ -13,23 +13,38 @@ $newformat = date('Y-m-d  H:i:s', $time);
 $newformat = new DateTime($newformat);
 
 $savedDate = date('Y-m-d  H:i:s', $time);
-$savedDate = new DateTime($savedDate);
+//echo($savedDate);die;
+//$savedDate = new DateTime($savedDate);
 ?>
 <script>
-    var postData 
+    var postData = "<?php echo $restaurant; ?>";
+    var postData2 = "<?php echo $masa; ?>";
+    var postData3 = "<?php echo $savedDate; ?>";
+    $( document ).ready(function() {
+    $('#rezerva').click(function(e){
+        e.preventDefault();
+        $.ajax({
+                url: 'ajaxCalls.php?action=rezerva',
+                method: "POST",
+                data: {'restaurant': postData, 'masa': postData2 , 'data': postData3}, 
+                dataType: "json",
+                success: function () {
+                    $('.restauranteCautare').css('display','none');
+                    $('.confirmare').css('display','block');
+                    alert('success');
+                    
+                },
+                error: function () {
+                    alert('not');
+                }
+            });
+    });
+});
 </script>
 <?php
 if(isset($restaurant) && ($restaurant != '')) {
     $meseLibere = $Restaurant->restaurantHasFreeTables($restaurant, $masa, $newformat);
     if ($meseLibere) {
-        //$insertRezervation = $Restaurant->insertRezervation($restaurant, $masa, $savedDate);
-//        echo 'Masa e libera<br />';
-//        echo 'rest id '.$restaurant;
-//        echo '<br />';
-//        echo 'masa id '.$masa;
-//        echo '<br />';
-//        print_r($savedDate);
-        //print_r($Restaurante);
         ?>
         <ul class="restauranteCautare">
             <li>
@@ -52,9 +67,12 @@ if(isset($restaurant) && ($restaurant != '')) {
                 </div>
                 </li>
         </ul>
+        <div class="confirmare">Rezervarea a fost preluata. Verifica telefonul...</div>
 <?php
     } else {
-        echo 'stay home';
+?>        
+    <div class="toateOcupate">Restaurantul nu mai are mese disponibile la aceasta ora.</div>
+<?php  
     }
 }
 else{
@@ -95,25 +113,4 @@ else{
 <?php
     }
 }
-
-try {
-    if ($_GET["action"] == "rezerva") {
-        
-        //$resultWorkers = mysql_query("SELECT * FROM workers");
-        
-        $insertRezervation = $Restaurant->insertRezervation($restaurant, $masa, $savedDate);
-
-        $Result = array();
-        $Result['Success'] = 'succeed';
-        print json_encode($Result);
-    }
-}catch (Exception $ex) {
-    //---------------error--------------------
-    $Result = array();
-    $Result['Result'] = "ERROR";
-    $Result['Message'] = $ex->getMessage();
-    print json_encode($Result);
-}
-
-
 ?>

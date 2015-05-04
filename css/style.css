@@ -56,7 +56,31 @@ body a{text-decoration: none; color: #000000;}
     float: left;
     height: auto;
 }
-
+.confirmare{
+    display: none;
+    width: 100%;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background: #8f8f8b;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    float: left;
+    height: 50px;
+    text-align: center;
+}
+.toateOcupate{
+    width: 100%;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background: #8f8f8b;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    float: left;
+    height: 50px;
+    text-align: center;
+}
 .pozaRestaurantCautare{width: 100px;
 height: 100px;
 float: left;
@@ -87,6 +111,20 @@ margin-right: 20px;}
 }
 .rezervaMasa{
     float: right;
+}
+#rezerva{
+    background-color: #8c1010;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    color: #ffffff;
+    display: block;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 75px;
 }
 /*logout*/
 .logout{float: right !important;
