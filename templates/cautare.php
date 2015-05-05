@@ -31,7 +31,7 @@ $savedDate = date('Y-m-d  H:i:s', $time);
                 success: function () {
                     $('.restauranteCautare').css('display','none');
                     $('.confirmare').css('display','block');
-                    alert('success');
+                    //alert('success');
                     
                 },
                 error: function () {

@@ -13,6 +13,7 @@ try {
         $Result = array();
         $Result['success'] = 'success';
         print json_encode($Result);
+        require '../mailer/mailer.send.php';
     }
 }catch (Exception $ex) {
     //---------------error--------------------

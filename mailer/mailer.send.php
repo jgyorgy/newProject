@@ -1,8 +1,8 @@
 <?php
 
-require './PHPMailerAutoload.php';
+require '../mailer/PHPMailerAutoload.php';
 session_start();
-
+//print_r($_POST);die;
 //require './mailer.setup.php.php';
 
 function SendMail($sendto, $subject, $body_message) {
@@ -11,14 +11,14 @@ function SendMail($sendto, $subject, $body_message) {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'csizmas.szilard@gmail.com';
-    $mail->Password = 'egyszerupassword';
+    $mail->Username = 'rezervatimasa@gmail.com';
+    $mail->Password = 'masarezervare';
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
-    $mail->From = 'csizmas.szilard@gmail.com';
-    $mail->FromName = 'test';
+    $mail->From = 'rezervatimasa@gmail.com';
+    $mail->FromName = 'rezervatimasa';
     $mail->addAddress($sendto, 'test1');
-    $mail->addReplyTo('csizmas.szilard@gmail.com', 'test2');
+    $mail->addReplyTo('rezervatimasa@gmail.com', 'test2');
     $mail->WordWrap = 50;
     $mail->isHTML(true);
     $mail->Subject = $subject;
@@ -28,60 +28,48 @@ function SendMail($sendto, $subject, $body_message) {
 }
 
 function DialogForm() {
+//var_dump($_POST);die;
+    $nameUser = $_SESSION['username'];
+    $email = $_SESSION['email'];
 
-    $name = $_POST['InputName'];
-    $company = $_POST['InputCompany'];
-    $email = $_POST['InputEmail1'];
-    $comment = $_POST['InputComment'];
+    $body_message = 'Buna ziua: ' . $nameUser . "<br />";
+    $body_message .= 'Aceasta e un mesaj de confirmare pentru ocuparea mesei la... ';
 
-    $_POST['InputName']="";
-    $_POST['InputCompany']=""; 
-    
-    $_SESSION['InputName'] = $name;
-    $_SESSION['InputCompany'] = $company;
-    $_SESSION['InputEmail1'] = $email;
-    $_SESSION['InputEmail2'] = $_POST['InputEmail2'];
-    $_SESSION['InputComment'] = $comment;
+    $subject = 'Message from: rezervatimasa';
+    $sendto = $email;
 
-    $body_message = 'From: ' . $name . "\n";
-    $body_message = 'Company: ' . $company . "\n";
-    $body_message .= 'E-mail: ' . $email . "\n";
-    $body_message .= 'Message: ' . $comment;
+    SendMail($sendto, $subject, $body_message);
+    SendMail('rezervatimasa@gmail.com', "Re:", "Mail sent to: ".$nameUser);
 
-    $subject = 'Message from: ' . $name;
-    $sendto = "csizmas_szilard@yahoo.com";
-
-
-    if (!SendMail($sendto, $subject, $body_message)) {
-        
-        $_SESSION['msg'] = "Message could not be sent to 1";
-        $_SESSION['gotMsg'] = 'Yes';
-        print(json_encode($_SESSION));
-        // header('Location: http://localhost/ctrl3d/index.php');
-        // exit;
-        //return false;
-    } else {
-       
-        if (!SendMail($email, "Re:", "Mail sent")) {
-            $_SESSION['msg'] = "Message could not be sent to 2";
-            $_SESSION['gotMsg'] = 'Yes';
-            print(json_encode($_SESSION));
-            //    header('Location: http://localhost/ctrl3d/index.php');
-            //    exit;
-            //return false;
-        } else {
-            $_SESSION['msg'] ="Message sent";
-            print(json_encode($_SESSION));
-            //$_SESSION['gotMsg']="Yes";
-            //header('Location: http://localhost/ctrl3d/index.php?destroy=true');
-            //exit;
-            //return true;
-        }
-    }
+//    if (!SendMail($sendto, $subject, $body_message)) {
+//        
+//        $_SESSION['msg'] = "Message could not be sent to 1";
+//        $_SESSION['gotMsg'] = 'Yes';
+//        print(json_encode($_SESSION));
+//        // header('Location: http://localhost/ctrl3d/index.php');
+//        // exit;
+//        //return false;
+//    } else {
+//       
+//        if (!SendMail('rezervatimasa@gmail.com', "Re:", "Mail sent to: ".$nameUser)) {
+//            $_SESSION['msg'] = "Message could not be sent to 2";
+//            $_SESSION['gotMsg'] = 'Yes';
+//            print(json_encode($_SESSION));
+//            //    header('Location: http://localhost/ctrl3d/index.php');
+//            //    exit;
+//            //return false;
+//        } else {
+//            $_SESSION['msg'] ="Message sent";
+//            print(json_encode($_SESSION));
+//            //$_SESSION['gotMsg']="Yes";
+//            //header('Location: http://localhost/ctrl3d/index.php?destroy=true');
+//            //exit;
+//            //return true;
+//        }
+//    }
 }
 
-//if (isset($_POST['submit'])) {
 DialogForm();
-//}
+
 ?>
 

@@ -36,6 +36,7 @@
             }
             
             $_SESSION['username'] = $username;
+            $_SESSION['email'] = $user['email'];
             header("Location:index.php");
             exit;
             
