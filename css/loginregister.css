@@ -178,3 +178,23 @@ textarea {
   margin-top: -20px;
   text-align: right;
 }
+
+@media screen and (max-width : 768px){
+    .button {
+        font-size: 1.5rem;
+        padding: 5px 0;
+    }
+    .tab-group li a {
+        padding: 5px;
+    }
+}
+
+@media screen and (max-width : 480px){
+    label {
+        font-size: 18px;
+    }
+    label.active {
+        font-size: 12px;
+    }
+    
+}

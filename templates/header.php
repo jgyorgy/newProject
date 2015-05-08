@@ -9,7 +9,8 @@
             <?php if ($endURL == 'login.php') { ?>
                 <link href="../css/loginregister.css" type="text/css" rel="stylesheet" />
             <?php } ?>
-                <link href="../css/style.css" type="text/css" rel="stylesheet" />
+                <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+                
 		<!--datepicker-->
 		<link rel="stylesheet" href="../css/jquery-ui.css">
 		<script src="../js/jquery-1.10.2.js"></script>
@@ -22,6 +23,7 @@
                 <script src="../js/loginregister.js"></script>
                 <script src="../js/script.js"></script>
                 
+                <link href="../css/style.css" type="text/css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 		<script type="text/javascript">
 		$(document).ready(function() {
@@ -40,8 +42,8 @@
 				<ul class="headerMenu">
 					<li><a href="index.php">Home</a></li>
 					<li><a href="restaurante.php">Restaurante</a></li>
-					<li>Despre</li>
-					<li>Ajutor</li>
+					<!--<li>Despre</li>
+					<li>Ajutor</li>-->
 					<li class="logout"><a href="logout.php">Log out</a></li>
 				</ul>
 				<div class="subHeader">

@@ -43,42 +43,41 @@
           <h1>Sign Up for Free</h1>
           
           <form action="registerVerification.php" method="post">
-          
             
-              <div class="field-wrap">
+            <div class="field-wrap">
                 <label>
-                  Username<span class="req">*</span>
+                    Username<span class="req">*</span>
                 </label>
                 <input name="usernameReg" type="text" required autocomplete="off" />
-              </div>
-              <div class="top-row">
+            </div>
+            <!--<div class="top-row">-->
             <div class="field-wrap">
-              <label>
-                Set A Password<span class="req">*</span>
-              </label>
-              <input name="passwordReg" type="password" required autocomplete="off"/>
+                <label>
+                    Set A Password<span class="req">*</span>
+                </label>
+                <input name="passwordReg" type="password" required autocomplete="off"/>
             </div>
 
             <div class="field-wrap">
                 <label>
-                  Password confirmation<span class="req">*</span>
+                    Password confirmation<span class="req">*</span>
                 </label>
                 <input name="passwordConfirmReg" type="password" required autocomplete="off"/>
-              </div>
-            </div>    
+            </div>
+            <!--</div>-->    
 
             <div class="field-wrap">
-              <label>
-                Email Address<span class="req">*</span>
-              </label>
-              <input name="emailReg" type="email" required autocomplete="off"/>
+                <label>
+                    Email Address<span class="req">*</span>
+                </label>
+                <input name="emailReg" type="email" required autocomplete="off"/>
             </div>
               
             <div class="field-wrap">
-              <label>
-                Phone number<span class="req">*</span>
-              </label>
-              <input name="phoneReg" type="number" min="10" required autocomplete="off"/>
+                <label>
+                    Phone number<span class="req">*</span>
+                </label>
+                <input name="phoneReg" type="number" min="10" required autocomplete="off"/>
             </div>  
           
           <button type="submit" name="submit" value="submit" class="button button-block"/>Get Started</button>

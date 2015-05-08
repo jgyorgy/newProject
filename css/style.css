@@ -1,45 +1,144 @@
-body{background-color: #0d0d0d; padding: 0; margin: 0; color: #ffffff; font-family: 'Roboto Condensed', sans-serif;}
-body li{list-style: none;}
-body a{text-decoration: none; color: #000000;}
-.clearer{clear:both;}
-.wrapper{max-width: 1024px; margin: 0 auto;}
-.header{height: auto;}
-.headerMenu {background: #8D111B; height: 50px; width: 100%; padding: 0; margin: 0;}
-.headerMenu li {float: left; list-style: none; margin-left: 20px; font-size: 25px; line-height: 50px; }
-#cautare{width: auto; height: 100px; margin: 0 auto; padding-left: 20px;}
-#cautare li {float: left; height: 40px; padding-left: 20px;}
-#cautare li:nth-child(1) {padding-left: 0;}
-#cautare label{font-size: 34px; color: #ffffff;}
-.cautare1 {width:auto;}
-.cautare2 {width:auto;}
-.cautare3 {width:auto;}
-.cautare4 {width:auto;}
-.cautare1 a{cursor: pointer;}
-.cautare2 a{cursor: pointer;}
-.dateInput{width: 110px; height: 35px; background: url('../images/calendar.png') no-repeat; background-color: #f8f8f8; border: 1px solid #bbb;
-	border-radius: 4px; box-shadow: 0 1px 0 rgba(255, 255, 255, 0.75); padding: 0;padding-left: 40px;}
-.timeInput{width: 110px; height: 35px; background: url('../images/time.png') no-repeat; background-color: #f8f8f8; border: 1px solid #bbb;
-	border-radius: 4px; box-shadow: 0 1px 0 rgba(255, 255, 255, 0.75); padding: 0;padding-left: 40px;}
-/*.restaurante{
+body{
+    background-color: #0d0d0d;
+    padding: 0;
+    margin: 0;
+    color: #ffffff;
+    font-family: 'Ubuntu', sans-serif;
+}
+body li{
+    list-style: none;
+}
+body a{
+    text-decoration: none;
+    color: #000000;
+}
+.clearer{
+    clear:both;
+    display: none;
+}
+.wrapper{
+    max-width: 1024px;
+    margin: 0 auto;
+}
+.header{
+    height: auto;
+}
+.headerMenu {
+    background: #8D111B;
+    height: 50px;
     width: 100%;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    background: #8f8f8b;
-    padding-bottom: 10px;
-    margin-bottom: 15px;}*/
-.selectBox-dropdown-menu{color: #000;}
-.butonCautare{height: 40px; width: 75px; background-color: #8C1010;
-	border-radius: 4px; padding: 0; font-weight: bold; color: #ffffff;}
-.butonSubmit{padding-top: 40px;}
-.subHeader { height: auto; text-align: center;}
-.subHeader img {width: 100%; display: block; height: 200px;}
-
+    padding: 0;
+    margin: 0;
+}
+.headerMenu li {
+    float: left;
+    list-style: none;
+    margin-left: 20px;
+    font-size: 25px;
+    line-height: 50px;
+}
+.headerMenu li a{
+    color: #fff;
+}
+.headerMenu li a:hover{
+    color: #E94D5A;
+}
+#cautare{
+    width: auto;
+    height: 100px;
+    margin: 0 auto;
+    padding-left: 20px;
+}
+#cautare li {
+    float: left;
+    height: 37px;
+    line-height: 34px;
+    width: 400px;
+    margin-top: 20px;
+    clear: both;
+}
+#cautare li:nth-child(1) {
+    padding-left: 0;
+}
+#cautare label{
+    font-size: 34px;
+    color: #ffffff;
+}
+.cautare1 {
+    width:auto;
+}
+.cautare2 {
+    width:auto;
+}
+.cautare3 {
+    width:auto;
+}
+.cautare4 {
+    width:auto;
+}
+.cautare1 a{
+    cursor: pointer;
+    float: right;
+}
+.cautare2 a{
+    cursor: pointer;
+    float: right;
+}
+.dateInput{
+    width: 110px;
+    height: 35px;
+    background: url('../images/calendar.png') no-repeat;
+    background-color: #f8f8f8;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    //box-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+    padding: 0;
+    padding-left: 40px;
+    float: right;
+}
+.timeInput{
+    width: 110px;
+    height: 35px;
+    background: url('../images/time.png') no-repeat;
+    background-color: #f8f8f8;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    //box-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+    padding: 0;
+    padding-left: 40px;
+    float: right;
+}
+.selectBox-dropdown-menu{
+    color: #000;
+}
+.butonCautare{
+    height: 40px;
+    width: 75px;
+    background-color: #8C1010;
+    border-radius: 4px;
+    padding: 0;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    float: right;
+}
+.butonSubmit{
+    padding-top: 20px;
+}
+.subHeader { 
+    height: auto;
+    text-align: center;
+    clear: both;
+}
+.subHeader img {
+    width: 100%;
+    display: block;
+    height: 200px;
+}
 .listaRestaurante{
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
 .restauranteCautare{float: left;
     width: 100%;
     padding: 0;
@@ -50,7 +149,7 @@ body a{text-decoration: none; color: #000000;}
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    background: #8f8f8b;
+    background: #4F4F4F;
     padding-bottom: 10px;
     margin-bottom: 15px;
     float: left;
@@ -62,7 +161,7 @@ body a{text-decoration: none; color: #000000;}
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    background: #8f8f8b;
+    background: #4F4F4F;
     padding-bottom: 10px;
     margin-bottom: 15px;
     float: left;
@@ -74,25 +173,27 @@ body a{text-decoration: none; color: #000000;}
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    background: #8f8f8b;
+    background: #4F4F4F;
     padding-bottom: 10px;
     margin-bottom: 15px;
     float: left;
     height: 50px;
     text-align: center;
 }
-.pozaRestaurantCautare{width: 100px;
-height: 100px;
-float: left;
-padding: 6px;
-border-radius: 5px;
--moz-border-radius: 5px;
--webkit-border-radius: 5px;
-background: #8f8f8b;
-margin-right: 20px;}
-
+.pozaRestaurantCautare{
+    width: 100px;
+    height: 100px;
+    float: left;
+    padding: 6px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background: #4F4F4F;
+    margin-right: 20px;
+}
 .pozaRestaurantCautare img{
-    width: 100px; height: 100px;
+    width: 100px;
+    height: 100px;
 }
 .restaurantDescriere{
     float: left;
@@ -100,6 +201,10 @@ margin-right: 20px;}
 }
 .numeRestaurantCautare{
     float: left;
+}
+.numeRestaurantCautare h2{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .adresaRestaurantCautare{
     float: left;
@@ -127,8 +232,10 @@ margin-right: 20px;}
     width: 75px;
 }
 /*logout*/
-.logout{float: right !important;
-margin-right: 20px;}
+.logout{
+    float: right !important;
+    margin-right: 20px;
+}
 .errorMessage{
     color: #ffffff;
     font-size: 30px;
@@ -138,39 +245,155 @@ margin-right: 20px;}
 }
 /*registration*/
 .register-form{
-	width: 500px;
-	margin: 0 auto;
-	text-align: center;
-	padding: 10px;
-	color: #fff;
-	background : #c4c4c4;
-	border-radius: 10px;
-	-webkit-border-radius:10px;
-	-moz-border-radius:10px;
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    background : #c4c4c4;
+    border-radius: 10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
 }
-
-.register-form form input{padding: 5px;}
-.register-form .btn{background: #726E6E;
-padding: 7px;
-border-radius: 5px;
-text-decoration: none;
-width: 50px;
-display: inline-block;
-color: #FFF;}
-
+.register-form form input{
+    padding: 5px;
+}
+.register-form .btn{
+    background: #726E6E;
+    padding: 7px;
+    border-radius: 5px;
+    text-decoration: none;
+    width: 50px;
+    display: inline-block;
+    color: #FFF;
+}
 .register-form .register{
-border: 0;
-width: 60px;
-padding: 8px;
+    border: 0;
+    width: 60px;
+    padding: 8px;
 }
 
 @media screen and (max-width : 768px){
 
-.wrapper{max-width: 480px; background-color: red; margin: 0 auto; }
-#cautare{height: 300px;}
-#cautare li {padding-left: 0;}
-.cautare2 {padding-left: 25px;}
-.cautare3 {padding-top: 50px;}
-.cautare4 {padding-top: 50px;}
-#cautare li.butonSubmit {clear: both; float: right; padding-top: 65px; margin-right: 50px;}
+.wrapper{
+    max-width: 480px;
+    background-color: #4F4F4F;
+    margin: 0 auto;
+}
+#cautare{
+    height: 300px;
+}
+#cautare label {
+    font-size: 25px;
+}
+#cautare li {
+    padding-left: 0;
+    width: 100%;
+}
+#cautare li.butonSubmit {
+    padding-top: 0;
+}
+.cautare1 a {
+    margin-right: 20px;
+}
+.cautare1 select {
+    margin-right: 20px;
+    float: right;
+    -moz-user-select: none;
+    display: inline-block;
+    width: 150px;
+    
+}
+.cautare2 a {
+    margin-right: 20px;
+}
+.cautare2 select {
+    margin-right: 20px;
+    float: right;
+    -moz-user-select: none;
+    display: inline-block;
+    width: 150px;
+}
+.dateInput {
+    margin-right: 20px;
+}
+.timeInput {
+    margin-right: 20px;
+}
+.butonCautare {
+    margin-right: 20px;
+}
+.headerMenu {
+    height: 40px;
+}
+.headerMenu li {
+    font-size: 20px;
+    line-height: 40px;
+}
+.subHeader img {
+    height: 150px;
+}
+.ui-timepicker-hours{
+    float: left;
+    width: 280px !important;
+}
+.ui-timepicker-minutes{
+    float: left;
+    width: 280px !important;
+    clear: both;
+}
+.ui-timepicker-table {
+    width: 280px !important;
+}
+#ui-timepicker-div{
+    left: 27% !important;
+}
+
+}
+@media screen and (max-width : 360px){
+.subHeader img {
+    height: 100px;
+}
+.clearer{
+    display: block;
+}
+#cautare {
+    padding-left: 0;
+    height: 400px;
+}
+#cautare li {
+    text-align: center;
+    margin-top: 40px;
+}
+#cautare label {
+    float: none;
+}    
+.cautare1 a {
+    float: none;
+    margin: 0;
+}
+.dateInput {
+    float: none;
+    margin: 0;
+}
+.timeInput {
+    float: none;
+    margin: 0;
+}
+.cautare2 a {
+    float: none;
+    margin: 0;
+}
+#cautare li:nth-child(1) {
+    margin-top: 10px;
+}
+.butonCautare {
+    margin-right: 0;
+    margin-top: 20px;
+    float: none;
+}
+.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all {
+    width: 240px;
+    left: 15% !important;
+}
 }
