@@ -42,8 +42,6 @@
 				<ul class="headerMenu">
 					<li><a href="index.php">Home</a></li>
 					<li><a href="restaurante.php">Restaurante</a></li>
-					<!--<li>Despre</li>
-					<li>Ajutor</li>-->
 					<li class="logout"><a href="logout.php">Log out</a></li>
 				</ul>
 				<div class="subHeader">

@@ -23,7 +23,8 @@ include_once('../templates/header.php');
 				<label for="ora">Ora: </label>
 				<div class="clearer"></div>
 				<input name="oraCheck" id="timepicker" class="timeInput">
-			</li>
+			</li> 
+                        
                         <li class="cautare2">
 				<label for="persoane">Nr. persoane: </label>
 				<div class="clearer"></div>

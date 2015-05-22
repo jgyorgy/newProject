@@ -1,0 +1,6 @@
+RewriteEngine On
+
+RewriteBase /templates/
+
+DirectoryIndex header.php
+

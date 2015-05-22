@@ -13,8 +13,7 @@ $newformat = date('Y-m-d  H:i:s', $time);
 $newformat = new DateTime($newformat);
 
 $savedDate = date('Y-m-d  H:i:s', $time);
-//echo($savedDate);die;
-//$savedDate = new DateTime($savedDate);
+
 ?>
 <script>
     var postData = "<?php echo $restaurant; ?>";
@@ -35,7 +34,9 @@ $savedDate = date('Y-m-d  H:i:s', $time);
                     
                 },
                 error: function () {
-                    alert('not');
+                    $('.restauranteCautare').css('display','none');
+                    $('.confirmare_fail').css('display','block');
+                    //alert('not');
                 }
             });
     });
@@ -65,9 +66,10 @@ if(isset($restaurant) && ($restaurant != '')) {
                         <a id="rezerva" title="Rezerva" name="Rezerva" type="submit">Rezerva</a>
                     </div>
                 </div>
-                </li>
+            </li>
         </ul>
-        <div class="confirmare">Rezervarea a fost preluata. Verifica telefonul...</div>
+        <div class="confirmare">Rezervarea a fost preluata. Verifica adresa de mail!</div>
+        <div class="confirmare_fail">Rezervarea nu a fost preluata. Te rugam sa incerci din nou!</div>
 <?php
     } else {
 ?>        

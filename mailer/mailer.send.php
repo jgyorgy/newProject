@@ -2,8 +2,6 @@
 
 require '../mailer/PHPMailerAutoload.php';
 session_start();
-//print_r($_POST);die;
-//require './mailer.setup.php.php';
 
 function SendMail($sendto, $subject, $body_message) {
 
@@ -28,7 +26,7 @@ function SendMail($sendto, $subject, $body_message) {
 }
 
 function DialogForm() {
-//var_dump($_POST);die;
+
     $nameUser = $_SESSION['username'];
     $email = $_SESSION['email'];
 
@@ -41,32 +39,6 @@ function DialogForm() {
     SendMail($sendto, $subject, $body_message);
     SendMail('rezervatimasa@gmail.com', "Re:", "Mail sent to: ".$nameUser);
 
-//    if (!SendMail($sendto, $subject, $body_message)) {
-//        
-//        $_SESSION['msg'] = "Message could not be sent to 1";
-//        $_SESSION['gotMsg'] = 'Yes';
-//        print(json_encode($_SESSION));
-//        // header('Location: http://localhost/ctrl3d/index.php');
-//        // exit;
-//        //return false;
-//    } else {
-//       
-//        if (!SendMail('rezervatimasa@gmail.com', "Re:", "Mail sent to: ".$nameUser)) {
-//            $_SESSION['msg'] = "Message could not be sent to 2";
-//            $_SESSION['gotMsg'] = 'Yes';
-//            print(json_encode($_SESSION));
-//            //    header('Location: http://localhost/ctrl3d/index.php');
-//            //    exit;
-//            //return false;
-//        } else {
-//            $_SESSION['msg'] ="Message sent";
-//            print(json_encode($_SESSION));
-//            //$_SESSION['gotMsg']="Yes";
-//            //header('Location: http://localhost/ctrl3d/index.php?destroy=true');
-//            //exit;
-//            //return true;
-//        }
-//    }
 }
 
 DialogForm();
