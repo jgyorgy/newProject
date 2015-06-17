@@ -77,6 +77,19 @@ body a{
     width:auto;
 }
 .cautare1 a{
+    background: rgba(0, 0, 0, 0) -moz-linear-gradient(center top , #f8f8f8 1%, #e1e1e1 100%) repeat scroll 0 0;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    color: #000;
+    cursor: default;
+    display: inline-block;
+    line-height: 1.5;
+    min-width: 150px;
+    outline: medium none;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    vertical-align: middle;
     cursor: pointer;
     float: right;
 }
@@ -293,6 +306,16 @@ body a{
     max-width: 480px;
     background-color: #4F4F4F;
     margin: 0 auto;
+    border-radius: 5px;
+}
+.listaRestaurante h1{
+    margin: 0 auto;
+    padding-left: 5px;
+}
+.listaRestaurante {
+    margin-bottom: 10px;
+    margin-top: 5px;
+    padding-bottom: 5px;
 }
 #cautare{
     height: 300px;
@@ -316,7 +339,7 @@ body a{
     -moz-user-select: none;
     display: inline-block;
     width: 150px;
-    
+    height: 35px;
 }
 .cautare2 a {
     margin-right: 20px;
@@ -327,6 +350,8 @@ body a{
     -moz-user-select: none;
     display: inline-block;
     width: 150px;
+    height: 35px;
+    border-radius: 4px;
 }
 .dateInput {
     margin-right: 20px;
@@ -371,6 +396,11 @@ body a{
 .rezervaMasa {
     margin-top: 10px;
 }
+.space{
+    float: left;
+    height: 10px;
+    width: 100%;
+}
 }
 @media screen and (max-width : 480px){
     #ui-timepicker-div{
@@ -404,6 +434,10 @@ body a{
     float: none;
     margin: 0;
 }
+.cautare1 select {
+    float: none;
+    margin: 0;
+}
 .dateInput {
     float: none;
     margin: 0;
@@ -413,6 +447,10 @@ body a{
     margin: 0;
 }
 .cautare2 a {
+    float: none;
+    margin: 0;
+}
+.cautare2 select {
     float: none;
     margin: 0;
 }

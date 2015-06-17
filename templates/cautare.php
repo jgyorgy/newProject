@@ -57,10 +57,10 @@ if(isset($restaurant) && ($restaurant != '')) {
                         <h2><?php print($Restaurante[$restaurant - 1]['Nume']);?></h2>
                     </div>
                     <div class='adresaRestaurantCautare'>
-                        Adresa: <?php print($Restaurante[$restaurant - 1]['Adresa']);?>
+                        <b>Adresa:</b> <?php print($Restaurante[$restaurant - 1]['Adresa']);?>
                     </div>
                     <div class='descriereRestaurantCautare'>
-                        Facilitati: <?php print($Restaurante[$restaurant - 1]['Descriere']);?>
+                        <b>Descriere:</b> <?php print($Restaurante[$restaurant - 1]['Descriere']);?>
                     </div>
                     <div class="rezervaMasa">
                         <a id="rezerva" title="Rezerva" name="Rezerva" type="submit">Rezerva</a>
@@ -104,10 +104,11 @@ else{
                         <h2><?php print($Restaurante[$value-1]['Nume']);?></h2>
                     </div>
                     <div class='adresaRestaurantCautare'>
-                        Adresa: <?php print($Restaurante[$value-1]['Adresa']);?>
+                        <b>Adresa:</b> <?php print($Restaurante[$value-1]['Adresa']);?>
                     </div>
+                    <div class="space"></div>
                     <div class='descriereRestaurantCautare'>
-                        Facilitati: <?php print($Restaurante[$value-1]['Descriere']);?>
+                        <b>Descriere:</b> <?php print($Restaurante[$value-1]['Descriere']);?>
                     </div>
                 </div>
                 </li>

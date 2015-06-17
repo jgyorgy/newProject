@@ -18,10 +18,11 @@
                 <h2><?php print($Restaurante[$i]['Nume']);?></h2>
             </div>
             <div class='adresaRestaurantCautare'>
-                Adresa: <?php print($Restaurante[$i]['Adresa']);?>
+                <b>Adresa:</b> <?php print($Restaurante[$i]['Adresa']);?>
             </div>
+            <div class="space"></div>
             <div class='descriereRestaurantCautare'>
-                Facilitati: <?php print($Restaurante[$i]['Descriere']);?>
+                <b>Descriere:</b> <?php print($Restaurante[$i]['Descriere']);?>
             </div>
         </div>
         </li>
