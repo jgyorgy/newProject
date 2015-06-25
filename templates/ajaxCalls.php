@@ -7,8 +7,8 @@ try {
         $restaurant = $_POST['restaurant'];
         $masa = $_POST['masa'];
         $savedDate = new DateTime($_POST['data']);
-
-        $insertRezervation = $Restaurant->insertRezervation($restaurant, $masa, $savedDate);
+        $username_save = $_SESSION['username'];
+        $insertRezervation = $Restaurant->insertRezervation($restaurant, $masa, $savedDate , $username_save);
 
         $Result = array();
         $Result['success'] = 'success';

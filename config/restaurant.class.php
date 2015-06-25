@@ -13,13 +13,14 @@ class Restaurant {
         return ($this->Database->resultset());
     }
 
-    public function insertRezervation($restaurant, $masa, $savedDate) {
+    public function insertRezervation($restaurant, $masa, $savedDate , $username_save) {
         $savedDate = $savedDate->add(new DateInterval('PT2H'));
-        $this->Database->query("INSERT INTO mese_disponibile(Restaurant_ID, Mese_ID, data) VALUES (:restaurant, :masa, :savedDate)");
+        $this->Database->query("INSERT INTO mese_disponibile(Restaurant_ID, Mese_ID, data, user) VALUES (:restaurant, :masa, :savedDate, :username_save)");
 
         $this->Database->bind(':restaurant', $restaurant, PDO::PARAM_STR);
         $this->Database->bind(':masa', $masa, PDO::PARAM_STR);
         $this->Database->bind(':savedDate', $savedDate->format("Y-m-d H:i:s"), PDO::PARAM_STR);
+        $this->Database->bind(':username_save', $username_save, PDO::PARAM_STR);
 
         $this->Database->execute();
     }
@@ -90,5 +91,13 @@ class Restaurant {
             $this->Database->bind(':phone', $phone, PDO::PARAM_STR);
 
             $this->Database->execute();
+    }
+    
+    public function rezervari(){
+        
+            $query = "SELECT * FROM mese_disponibile ";
+            $this->Database->query($query);
+            $rezervari = $this->Database->resultset();
+            return $rezervari;
     }
 }

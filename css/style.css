@@ -243,7 +243,7 @@ body a{
 .rezervaMasa{
     float: right;
 }
-#rezerva{
+.rezerva{
     background-color: #8c1010;
     border: 2px solid #fff;
     border-radius: 4px;

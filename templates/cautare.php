@@ -16,11 +16,14 @@ $savedDate = date('Y-m-d  H:i:s', $time);
 
 ?>
 <script>
-    var postData = "<?php echo $restaurant; ?>";
+    //var postData = "<?php /*echo $restaurant;*/ ?>";
     var postData2 = "<?php echo $masa; ?>";
     var postData3 = "<?php echo $savedDate; ?>";
     $( document ).ready(function() {
-    $('#rezerva').click(function(e){
+        
+    $('.rezerva').click(function(e){
+        var postData = $(this).parent().parent().find('.idRestaurantCautare').val();
+        //console.log(postData);
         e.preventDefault();
         $.ajax({
                 url: 'ajaxCalls.php?action=rezerva',
@@ -43,6 +46,7 @@ $savedDate = date('Y-m-d  H:i:s', $time);
 });
 </script>
 <?php
+//var_dump($Restaurante);
 if(isset($restaurant) && ($restaurant != '')) {
     $meseLibere = $Restaurant->restaurantHasFreeTables($restaurant, $masa, $newformat);
     if ($meseLibere) {
@@ -53,6 +57,7 @@ if(isset($restaurant) && ($restaurant != '')) {
                     <img src='../images/logos/logo.jpg'>
                 </div>
                 <div class="restaurantDescriere">
+                    <input type="hidden" class="idRestaurantCautare" name="idRestaurantCautare" value="<?php print($Restaurante[$restaurant - 1]['ID']);?>" />
                     <div class='numeRestaurantCautare'>
                         <h2><?php print($Restaurante[$restaurant - 1]['Nume']);?></h2>
                     </div>
@@ -63,7 +68,7 @@ if(isset($restaurant) && ($restaurant != '')) {
                         <b>Descriere:</b> <?php print($Restaurante[$restaurant - 1]['Descriere']);?>
                     </div>
                     <div class="rezervaMasa">
-                        <a id="rezerva" title="Rezerva" name="Rezerva" type="submit">Rezerva</a>
+                        <a class="rezerva" title="Rezerva" name="Rezerva" type="submit">Rezerva</a>
                     </div>
                 </div>
             </li>
@@ -100,6 +105,7 @@ else{
                     <img src='../images/logos/logo.jpg'>
                 </div>
                 <div class="restaurantDescriere">
+                    <input type="hidden" class="idRestaurantCautare" name="idRestaurantCautare" value="<?php print($Restaurante[$value-1]['ID']);?>" />
                     <div class='numeRestaurantCautare'>
                         <h2><?php print($Restaurante[$value-1]['Nume']);?></h2>
                     </div>
@@ -110,10 +116,17 @@ else{
                     <div class='descriereRestaurantCautare'>
                         <b>Descriere:</b> <?php print($Restaurante[$value-1]['Descriere']);?>
                     </div>
+                    <div class="rezervaMasa">
+                        <a class="rezerva" title="Rezerva" name="Rezerva" type="submit">Rezerva</a>
+                    </div>
                 </div>
                 </li>
         </ul>
+        
 <?php
     }
-}
+?>
+    <div class="confirmare">Rezervarea a fost preluata. Verifica adresa de mail!</div>
+    <div class="confirmare_fail">Rezervarea nu a fost preluata. Te rugam sa incerci din nou!</div>
+<?php }
 ?>
